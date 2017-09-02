@@ -1,6 +1,7 @@
 # This file is for working with dictionaries in python
 
 import numpy as np
+import json
 
 dict = {}
 
@@ -37,3 +38,27 @@ loadeddict['newkey'] = ['val1', 'val2']
 
 print loadeddict.keys()
 print loadeddict['newkey']
+
+print('**********************')
+## Using Json for storing the tags
+
+"Save data to file"
+json.dump(dict, open("json_dict.txt",'w'))
+
+"Read File"
+loaded_json = json.load(open("json_dict.txt"))
+
+print(loaded_json)
+print(loaded_json['C++'])
+
+"Check validity of json data with original"
+print(loaded_json['C++']==dict['C++'])
+
+"Saving to anotehr file type"
+json.dump(dict,open("json_dict.kkk",'w'))
+other_loaded_json = json.load(open("json_dict.kkk"))
+
+print(other_loaded_json['C++'])
+
+"Check validity of json data with original"
+print(other_loaded_json['C++']==dict['C++'])
